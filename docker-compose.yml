@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  front:
+    image: dockerchiche/front:latest
+  back:
+    image: dockerchiche/back:latest
+  lb:
+    build: ./container-chat-lb-example
+    depends_on:
+      - front
+      - back
+    ports:
+      - '80:80'
